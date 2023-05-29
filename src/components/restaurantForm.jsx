@@ -214,7 +214,7 @@ const handlePhotoChange = (event) => {
       <div className="form-group">
         <label htmlFor="zoneId">Select a zone:</label>
         <select className="form-control" required id="zoneId" value={selectedZoneId} onChange={handleZoneChange}>
-       
+        <option value="">zones</option>
           {zones.map((zone) => (
             <option key={zone.id} value={zone.id}>
               {zone.nom}
