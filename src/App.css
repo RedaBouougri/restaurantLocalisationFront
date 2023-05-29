@@ -13,6 +13,10 @@
   }
 }
 
+.nav-link {color: white;}
+.text-field {width: 200px;}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,16 +27,47 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.rounded-t-5 {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 550px) {
+  .rounded-tr-lg-0 {
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.top-image {
+  width: 300px; /* Adjust the width as per your preference */
+  height: auto;
+  border-radius: 50%;
 }
