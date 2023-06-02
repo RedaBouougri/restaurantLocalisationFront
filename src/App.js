@@ -53,14 +53,14 @@ function App() {
 
       <Route  element={<ProtectedRoute />} >
          
-          <Route  element={<UserRoute/>} >
+         
 
           <Route path="/restos" element={<RestoDetails />} />
           <Route path="/restodetails/:id" element={<MapId/>} />
           <Route path="/map" element={<Map />} />
-          </Route>
+       
 
-          <Route  element={<AdminRoute/>} >
+         
 
           <Route path="/specialiteList" element={<SpecialiteList />} />
           <Route path="/addSpecialite" element={<SpecialiteForm />} />
@@ -77,7 +77,7 @@ function App() {
           <Route path="/editresto/:id" element={<EditResto />} />
           
           </Route>
-          </Route>
+   
 
           
          
