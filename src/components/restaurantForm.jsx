@@ -152,30 +152,7 @@ const handlePhotoChange = (event) => {
         <label htmlFor="Latitude">Latitude:</label>
         <input type="number" placeholder="Latitude" required className="form-control" id="Latitude" value={latitude} onChange={(event) => setLatitude(event.target.value)} />
       </div>
-      <div className="form-group">
-        <label htmlFor="Rank">Jours d'ouverture:</label>
-        <br />
-        Du:
-        <select nom="jour_open" id="jour_open" required value={jourOpen} onChange={handleJourOpenChange}>
-          <option value="Lundi">Lundi</option>
-          <option value="Mardi">Mardi</option>
-          <option value="Mercredi">Mercredi</option>
-          <option value="Jeudi">Jeudi</option>
-          <option value="Vendredi">Vendredi</option>
-          <option value="Samedi">Samedi</option>
-          <option value="Dimanche">Dimanche</option>
-        </select>
-        A:
-        <select nom="jour_close" id="jour_close" required value={jourClose} onChange={handleJourCloseChange}>
-          <option value="Lundi">Lundi</option>
-          <option value="Mardi">Mardi</option>
-          <option value="Mercredi">Mercredi</option>
-          <option value="Jeudi">Jeudi</option>
-          <option value="Vendredi">Vendredi</option>
-          <option value="Samedi">Samedi</option>
-          <option value="Dimanche">Dimanche</option>
-        </select>
-      </div>
+     
     </div>
     <div className="col-md-6">
       <div className="form-group">
