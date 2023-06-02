@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "http://restaurantlocalisationback-production.up.railway.app:8050/api/$1"
+      }
+    ]
+  }
