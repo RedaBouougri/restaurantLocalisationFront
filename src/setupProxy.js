@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://restaurantlocalisationback-production.up.railway.app',
+      target: 'https://restaurantlocalisationback-production.up.railway.app',
       changeOrigin: true,
     })
   );
