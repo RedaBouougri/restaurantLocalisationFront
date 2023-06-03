@@ -49,7 +49,7 @@ useEffect(()=>{
 
     const loadResto=async ()=>{
        
-       const result= await axios.get(`/api/restos/findbyid/${id}`)
+       const result= await axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/restos/findbyid/${id}`)
        setResto(result.data)
        console.log(result.data)
        setAdresse(result.data.adress)
@@ -75,7 +75,7 @@ useEffect(()=>{
   const handleSubmit = (event) => {
     event.preventDefault();
     const concatenatedString = "De "+ jourOpen.concat(" A "+jourClose );
-    axios.put("/api/restos/update", {
+    axios.put("https://restaurantlocalisationback-production.up.railway.app/api/restos/update", {
         
       id:id,
       adress:adresse,
@@ -123,13 +123,13 @@ useEffect(()=>{
   };
 
   useEffect(() => {
-    axios.get("/api/villes/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
       setCities(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
@@ -137,10 +137,10 @@ useEffect(()=>{
   const handleCityChange = async (event) => {
     const selectedOption = event.target.value; // Get the selected value from the event
   
-    const result = await axios.get(`/api/villes/findbynom/${selectedOption}`);
+    const result = await axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/villes/findbynom/${selectedOption}`);
     setCitie(result.data);
   
-    axios.get(`/api/zones/ville/zones/${selectedOption}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones/ville/zones/${selectedOption}`).then((response) => {
       setZones(response.data);
     });
   };

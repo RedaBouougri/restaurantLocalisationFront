@@ -21,7 +21,7 @@ const GoogleMapComponent = ({ google }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`/api/restos/findbyid/${id}`)
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/restos/findbyid/${id}`)
       .then(response => {
         const data = response.data;
   

@@ -46,7 +46,7 @@ const SpecilaiteList = () => {
 
   const handleDeleteConfirmationConfirm = () => {
     if (deleteVilleId) {
-      axios.delete(`/api/specialities/delete/${deleteVilleId}`).then(() => {
+      axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/specialities/delete/${deleteVilleId}`).then(() => {
         setSpecialities((villes) => villes.filter((item) => item.id !== deleteVilleId));
         handleDeleteConfirmationClose();
       });
@@ -54,7 +54,7 @@ const SpecilaiteList = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/specialities/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/specialities/all").then((response) => {
       setSpecialities(response.data);
       console.log(response.data);
     });
@@ -63,7 +63,7 @@ const SpecilaiteList = () => {
 
 
   const handleFind = (id) => {
-    axios.get(`/api/specialities/findbyid/${id}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/specialities/findbyid/${id}`).then((response) => {
       const data = response.data;
       setSpecialitie(data);
      
@@ -74,7 +74,7 @@ const SpecilaiteList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this speciality?")) {
-      axios.delete(`/api/specialities/delete/${id}`).then(() => {
+      axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/specialities/delete/${id}`).then(() => {
         setSpecialities((specialities) => specialities.filter((item) => item.id !== id));
       });
     }
@@ -83,7 +83,7 @@ const SpecilaiteList = () => {
   const handleEdit = (id) => {
     const newName = window.prompt("Enter the new name for this speciality:");
     if (newName) {
-      axios.put(`/api/specialities/update/${id}`, { nom: newName }).then(() => {
+      axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/specialities/update/${id}`, { nom: newName }).then(() => {
         setSpecialities((specialities) =>
           specialities.map((specialite) => {
             if (specialite.id === id) {
@@ -106,7 +106,7 @@ const SpecilaiteList = () => {
     const handleSaveEdit = (event) => {
       event.preventDefault();
     // Perform the API call to save the edited specialite
-    axios.put(`/api/specialities/update/${id}`, { nom: editSerie.nom }).then(() => {
+    axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/specialities/update/${id}`, { nom: editSerie.nom }).then(() => {
       setSpecialities((specialities) =>
         specialities.map((item) => {
           if (item.id === id) {
@@ -115,7 +115,7 @@ const SpecilaiteList = () => {
           return item;
         })
       );
-      axios.get("/api/specialities/all").then((response) => {
+      axios.get("https://restaurantlocalisationback-production.up.railway.app/api/specialities/all").then((response) => {
         setSpecialities(response.data);
         console.log(response.data);
       });
@@ -124,7 +124,7 @@ const SpecilaiteList = () => {
   };
 
   useEffect(() => {
-    axios.get(`/api/specialities/findbyid/${id}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/specialities/findbyid/${id}`).then((response) => {
       const data = response.data;
       setEditSerie(data);
     });
@@ -199,10 +199,10 @@ const SpecilaiteList = () => {
 
     const handleCreateSpecialite = (event) => {
       event.preventDefault();
-      axios.post("/api/specialities/save", { nom: newVilleNom }).then(() => {
+      axios.post("https://restaurantlocalisationback-production.up.railway.app/api/specialities/save", { nom: newVilleNom }).then(() => {
         setSpecialities((prevVilles) => [...prevVilles, { nom: newVilleNom }]);
         setNewVilleNom("");
-        axios.get("/api/specialities/all").then((response) => {
+        axios.get("https://restaurantlocalisationback-production.up.railway.app/api/specialities/all").then((response) => {
           setSpecialities(response.data);
           console.log(response.data);
         });

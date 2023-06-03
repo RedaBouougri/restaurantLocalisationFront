@@ -33,7 +33,7 @@ const RestaurantForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const concatenatedString = "De "+ jourOpen.concat(" A "+jourClose );
-    axios.post("/api/restos/save", {
+    axios.post("https://restaurantlocalisationback-production.up.railway.app/api/restos/save", {
         
       adress:adresse,
       
@@ -95,13 +95,13 @@ const handlePhotoChange = (event) => {
   };
 
   useEffect(() => {
-    axios.get("/api/villes/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
       setCities(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
@@ -109,7 +109,7 @@ const handlePhotoChange = (event) => {
   const handleCityChange = (event) => {
     const cityId = event.target.value;
     setSelectedCityId(cityId);
-    axios.get(`/api/zones//ville/zones/${cityId}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones//ville/zones/${cityId}`).then((response) => {
       setZones(response.data);
     });
   };

@@ -35,7 +35,7 @@ const RestoDetails: React.FC<{ resto: any }> = ({ resto }) => {
             <InfoCircleOutlined key="info" onClick={handleInfoClick} />
           </Tooltip>,
           <Tooltip title="Map">
-            <Link to={`/restodetails/${resto.id}`}>
+            <Link to={`https://restaurantlocalisationback-production.up.railway.app/restodetails/${resto.id}`}>
               <EnvironmentOutlined key="Map" />
             </Link>
           </Tooltip>,
@@ -79,20 +79,20 @@ const RestaurantList = () => {
   const [series, setSeries] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/restos/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/restos/all").then((response) => {
       setRestaus(response.data);
       console.log(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/villes/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
       setCities(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
 
     });
@@ -100,7 +100,7 @@ const RestaurantList = () => {
 
   const handleCityChange = (value) => {
     setSelectedCityId(value);
-    axios.get(`/api/zones//ville/zones/${value}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones//ville/zones/${value}`).then((response) => {
       setZones(response.data);
       console.log(value);
     });
@@ -109,7 +109,7 @@ const RestaurantList = () => {
   const handleZoneChange = (value) => {
 
     setSelectedZoneId(value);
-    axios.get(`/api/restos/filter/${selectedCityId}/${value}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/restos/filter/${selectedCityId}/${value}`).then((response) => {
       setRestaus(response.data);
       console.log(response.data);
     });
@@ -120,7 +120,7 @@ const RestaurantList = () => {
   const handleSerieChange = (value) => {
 
     setSelectedSerieId(value);
-    axios.get(`/api/restos/filter2/${selectedCityId}/${selectedZoneId}/${value}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/restos/filter2/${selectedCityId}/${selectedZoneId}/${value}`).then((response) => {
       setRestaus(response.data);
       console.log(response.data);
     });
@@ -129,7 +129,7 @@ const RestaurantList = () => {
   };
 
   const handleFilterClick = () => {
-    axios.get(`/api/restos/filter/${selectedCityId}/${selectedZoneId}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/restos/filter/${selectedCityId}/${selectedZoneId}`).then((response) => {
       setRestaus(response.data);
       console.log(response.data);
     });

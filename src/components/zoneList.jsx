@@ -43,7 +43,7 @@ const ZoneList = ({ cityId }) => {
 
     const handleDeleteConfirmationConfirm = () => {
         if (deleteVilleId) {
-            axios.delete(`/api/zones/delete/${deleteVilleId}`).then(() => {
+            axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/zones/delete/${deleteVilleId}`).then(() => {
                 setZones((villes) => villes.filter((item) => item.id !== deleteVilleId));
                 handleDeleteConfirmationClose();
             });
@@ -52,7 +52,7 @@ const ZoneList = ({ cityId }) => {
 
 
     useEffect(() => {
-        axios.get("/api/zones/all").then((response) => {
+        axios.get("https://restaurantlocalisationback-production.up.railway.app/api/zones/all").then((response) => {
             setZones(response.data);
             console.log(response.data);
         });
@@ -66,14 +66,14 @@ const ZoneList = ({ cityId }) => {
 
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this zone?")) {
-            axios.delete(`/api/zones/delete/${id}`).then(() => {
+            axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/zones/delete/${id}`).then(() => {
                 setZones(zones.filter((item) => item.id !== id));
             });
         }
     };
 
     const handleFind = (id) => {
-        axios.get(`/api/zones/findbyid/${id}`).then((response) => {
+        axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones/findbyid/${id}`).then((response) => {
             const data = response.data;
             setZone(data);
             setSelectedCityId(data.ville && data.ville.id); // Set selected city ID
@@ -85,7 +85,7 @@ const ZoneList = ({ cityId }) => {
     const handleEdit = (id) => {
         const newName = window.prompt("Enter the new name for this zone:");
         if (newName) {
-            axios.put(`/api/zones/update/${id}`, { nom: newName }).then(() => {
+            axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/zones/update/${id}`, { nom: newName }).then(() => {
                 setZones((zones) =>
                     zones.map((zone) => {
                         if (zone.id === id) {
@@ -137,9 +137,9 @@ const ZoneList = ({ cityId }) => {
         const handleSaveEdit = () => {
             // Perform the API call to save the edited zone
             const { nom, ville } = zone;
-            axios.put(`/api/zones/update/${id}`, { nom: editSerie.nom, ville: { id: selectedCityId } }).then(() => {
+            axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/zones/update/${id}`, { nom: editSerie.nom, ville: { id: selectedCityId } }).then(() => {
 
-                axios.get("/api/zones/all").then((response) => {
+                axios.get("https://restaurantlocalisationback-production.up.railway.app/api/zones/all").then((response) => {
                     setZones(response.data);
                 });
                 handleCloseEditModal();
@@ -147,7 +147,7 @@ const ZoneList = ({ cityId }) => {
         };
 
         useEffect(() => {
-            axios.get(`/api/zones/findbyid/${id}`).then((response) => {
+            axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones/findbyid/${id}`).then((response) => {
                 const data = response.data;
                 setEditSerie(data);
             });
@@ -211,9 +211,9 @@ const ZoneList = ({ cityId }) => {
 
         const handleSubmit = (event) => {
             event.preventDefault();
-            axios.post("/api/zones/save", { nom, ville: { id: selectedCityId } }).then(() => {
+            axios.post("https://restaurantlocalisationback-production.up.railway.app/api/zones/save", { nom, ville: { id: selectedCityId } }).then(() => {
                 // Refresh the zones list after creating a new zone
-                axios.get("/api/zones/all").then((response) => {
+                axios.get("https://restaurantlocalisationback-production.up.railway.app/api/zones/all").then((response) => {
                     setZones(response.data);
                 });
                 handleCloseCreateModal();

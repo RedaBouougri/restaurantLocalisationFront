@@ -42,7 +42,7 @@ const SerieList = () => {
 
   const handleDeleteConfirmationConfirm = () => {
     if (deleteVilleId) {
-      axios.delete(`/api/series/delete/${deleteVilleId}`).then(() => {
+      axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/series/delete/${deleteVilleId}`).then(() => {
         setSeries((villes) => villes.filter((item) => item.id !== deleteVilleId));
         handleDeleteConfirmationClose();
       });
@@ -50,13 +50,13 @@ const SerieList = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/series/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/series/all").then((response) => {
       setSeries(response.data);
     });
   }, []);
 
   const handleFind = (id) => {
-    axios.get(`/api/series/findbyid/${id}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/series/findbyid/${id}`).then((response) => {
       const data = response.data;
       setSerie(data);
       setEditModalId(id); // Set the ID in the state
@@ -66,7 +66,7 @@ const SerieList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this serie?")) {
-      axios.delete(`/api/series/delete/${id}`).then(() => {
+      axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/series/delete/${id}`).then(() => {
         setSeries((prevSeries) => prevSeries.filter((item) => item.id !== id));
       });
     }
@@ -75,7 +75,7 @@ const SerieList = () => {
   const handleEdit = (id) => {
     const newName = window.prompt("Enter the new name for this serie:");
     if (newName) {
-      axios.put(`/api/series/update/${id}`, { nom: newName }).then(() => {
+      axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/series/update/${id}`, { nom: newName }).then(() => {
         setSeries((prevSeries) =>
           prevSeries.map((serie) => {
             if (serie.id === id) {
@@ -93,7 +93,7 @@ const SerieList = () => {
   };
 
   const handleSaveEdit = () => {
-    axios.put(`/api/series/update/${serie.id}`, { nom: serie.nom }).then(() => {
+    axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/series/update/${serie.id}`, { nom: serie.nom }).then(() => {
       setSeries((prevSeries) =>
         prevSeries.map((item) => {
           if (item.id === serie.id) {
@@ -102,7 +102,7 @@ const SerieList = () => {
           return item;
         })
       );
-      axios.get("/api/series/all").then((response) => {
+      axios.get("https://restaurantlocalisationback-production.up.railway.app/api/series/all").then((response) => {
         setSeries(response.data);
       });
       handleCloseEditModal();
@@ -134,7 +134,7 @@ const SerieList = () => {
 
     const handleEditSerie = (event) => {
       event.preventDefault();
-      axios.put(`/api/series/update/${id}`, { nom: editSerie.nom }).then(() => {
+      axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/series/update/${id}`, { nom: editSerie.nom }).then(() => {
         setSeries((prevSeries) =>
           prevSeries.map((item) => {
             if (item.id === id) {
@@ -148,7 +148,7 @@ const SerieList = () => {
     };
 
     useEffect(() => {
-      axios.get(`/api/series/findbyid/${id}`).then((response) => {
+      axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/series/findbyid/${id}`).then((response) => {
         const data = response.data;
         setEditSerie(data);
       });
@@ -199,10 +199,10 @@ const SerieList = () => {
 
     const handleCreateSerie = (event) => {
       event.preventDefault();
-      axios.post("/api/series/save", { nom: newVilleNom }).then(() => {
+      axios.post("https://restaurantlocalisationback-production.up.railway.app/api/series/save", { nom: newVilleNom }).then(() => {
         setSeries((prevVilles) => [...prevVilles, { nom: newVilleNom }]);
         setNewVilleNom("");
-        axios.get("/api/series/all").then((response) => {
+        axios.get("https://restaurantlocalisationback-production.up.railway.app/api/series/all").then((response) => {
           setSeries(response.data);
         });
         handleCloseCreateModal();

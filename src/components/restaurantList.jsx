@@ -60,7 +60,7 @@ const RestaurantList = () => {
   const handleDeleteConfirmationConfirm = () => {
     if (deleteVilleId) {
       axios
-        .delete(`/api/restos/delete`, {
+        .delete(`https://restaurantlocalisationback-production.up.railway.app/api/restos/delete`, {
           data: { id: deleteVilleId },
         })
         .then(() => {
@@ -71,7 +71,7 @@ const RestaurantList = () => {
   };
 
   useEffect(() => {
-    axios.get('/api/restos/all').then((response) => {
+    axios.get('https://restaurantlocalisationback-production.up.railway.app/api/restos/all').then((response) => {
       setRestaus(response.data);
     });
   }, []);
