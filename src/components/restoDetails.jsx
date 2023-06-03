@@ -100,7 +100,7 @@ const RestaurantList = () => {
 
   const handleCityChange = (value) => {
     setSelectedCityId(value);
-    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones//ville/zones/${value}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones/ville/zones/${value}`).then((response) => {
       setZones(response.data);
       console.log(value);
     });
