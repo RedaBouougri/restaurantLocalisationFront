@@ -210,12 +210,12 @@ const VilleList = () => {
 
     const handleCreateVille = (event) => {
       event.preventDefault();
-      axios.post("/api/villes/save", { nom: newVilleNom }).then(() => {
+      axios.post("https://restaurantlocalisationback-production.up.railway.app/api/villes/save", { nom: newVilleNom }).then(() => {
         setVilles((prevVilles) => [...prevVilles, { nom: newVilleNom }]);
         setNewVilleNom("");
         handleCloseCreateModal();
 
-        axios.get("/api/villes/all").then((response) => {
+        axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
           setVilles(response.data);
           console.log(response.data);
         });
