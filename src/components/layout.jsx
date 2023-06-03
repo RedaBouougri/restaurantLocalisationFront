@@ -83,7 +83,7 @@ class ResponsiveAppBar extends Component {
               alt="Logo"
               style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: 5 }} // Adjust the width as per your requirement
             />
-            <MDBNavbarBrand href="/Home">Resto Localisation</MDBNavbarBrand>
+            <MDBNavbarBrand href="/map">Resto Localisation</MDBNavbarBrand>
 
             <MDBNavbarToggler
               type="button"
