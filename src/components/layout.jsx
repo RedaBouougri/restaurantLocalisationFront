@@ -98,58 +98,77 @@ class ResponsiveAppBar extends Component {
             <MDBCollapse show={showNavSecond} navbar>
               <MDBNavbarNav className="me-auto mb-2 mb-lg-0">
                
+              {showAdminBoard && (
                
-                <MDBNavbarItem className="active">
-                  <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/restaurantList">
-                    <MDBIcon icon="camera-retro" />
-                    Restaurants
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
+               <MDBNavbarItem className="active">
+                 <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/restaurantList">
+                   <MDBIcon icon="camera-retro" />
+                   Restaurants
+                 </MDBNavbarLink>
+               </MDBNavbarItem>)}
+               {showAdminBoard && (
+               </MDBNavbarItem>
+              
+               <MDBNavbarItem className="active">
+                 <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/villeList">
+                   <MDBIcon icon="camera-retro" />
+                   Villes
+                 </MDBNavbarLink>
+               </MDBNavbarItem>)}
+               {showAdminBoard && (
+               </MDBNavbarItem>
+             
+               <MDBNavbarItem className="active">
+                 <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/zoneList">
+                   <MDBIcon icon="camera-retro" />
+                   Zones
+                 </MDBNavbarLink>
+               </MDBNavbarItem>)}
+               {showAdminBoard && (
+               </MDBNavbarItem>
+         
+               <MDBNavbarItem className="active">
+                 <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/specialiteList">
+                   <MDBIcon icon="camera-retro" />
+                   Specialités
+                 </MDBNavbarLink>
+               </MDBNavbarItem>)}
+               {showAdminBoard && (
+               </MDBNavbarItem>
+             
+               <MDBNavbarItem className="active">
+                 <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/serieList">
+                   <MDBIcon icon="camera-retro" />
+                   Series
+                 </MDBNavbarLink>
+               </MDBNavbarItem>)}
+               {showAdminBoard && (
+               </MDBNavbarItem>
                
-                <MDBNavbarItem className="active">
-                  <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/villeList">
-                    <MDBIcon icon="camera-retro" />
-                    Villes
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
+               <MDBNavbarItem className="active">
+                 <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/map">
+                   <MDBIcon icon="camera-retro" />
+                   MapAll
+                 </MDBNavbarLink>
+               </MDBNavbarItem>)}
+               {showUserBoard && (
+               </MDBNavbarItem>
               
-                <MDBNavbarItem className="active">
-                  <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/zoneList">
-                    <MDBIcon icon="camera-retro" />
-                    Zones
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
-          
-                <MDBNavbarItem className="active">
-                  <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/specialiteList">
-                    <MDBIcon icon="camera-retro" />
-                    Specialités
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
-              
-                <MDBNavbarItem className="active">
-                  <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/serieList">
-                    <MDBIcon icon="camera-retro" />
-                    Series
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
-                
-                <MDBNavbarItem className="active">
-                  <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/map">
-                    <MDBIcon icon="camera-retro" />
-                    MapAll
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
-               
-                  <MDBNavbarItem className="active">
-                    <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/restos">
-                      <MDBIcon icon="camera-retro" />
-                      UserRestos
-                    </MDBNavbarLink>
-                  </MDBNavbarItem>
-              
-                
-                
+                 <MDBNavbarItem className="active">
+                   <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/restos">
+                     <MDBIcon icon="camera-retro" />
+                     UserRestos
+                   </MDBNavbarLink>
+                 </MDBNavbarItem>
+               )}
+                {showUserBoard && (
+                 <MDBNavbarItem className="active">
+                   <MDBNavbarLink style={{ color: "white" }} aria-current="page" href="/map">
+                     <MDBIcon icon="camera-retro" />
+                     MapAll
+                   </MDBNavbarLink>
+                 </MDBNavbarItem>
+               )}
 
 {currentUser ? (
   <MDBNavbarItem className='ms-auto'>

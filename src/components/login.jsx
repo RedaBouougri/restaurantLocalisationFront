@@ -70,7 +70,7 @@ class Login extends Component {
             if(user.roles.includes("ROLE_ADMIN")){
               this.props.router.navigate("/map");
             }else{
-              this.props.router.navigate("/map");
+              this.props.router.navigate("/restos");
             }
           
           window.location.reload();
