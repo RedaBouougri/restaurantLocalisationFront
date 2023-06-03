@@ -59,7 +59,7 @@ const VilleList = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/villes/all").then((response) => {
+    axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
       setVilles(response.data);
       console.log(response.data);
     });
