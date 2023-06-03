@@ -49,7 +49,7 @@ const VilleList = () => {
 
   const handleDeleteConfirmationConfirm = () => {
     if (deleteVilleId) {
-      axios.delete(`/api/villes/delete/${deleteVilleId}`).then(() => {
+      axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/villes/delete/${deleteVilleId}`).then(() => {
         setVilles((villes) => villes.filter((item) => item.id !== deleteVilleId));
 
         handleDeleteConfirmationClose();
@@ -67,14 +67,14 @@ const VilleList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this ville?")) {
-      axios.delete(`/api/villes/delete/${id}`).then(() => {
+      axios.delete(`https://restaurantlocalisationback-production.up.railway.app/api/villes/delete/${id}`).then(() => {
         setVilles(villes.filter((item) => item.id !== id));
       });
     }
   };
 
   const handleFind = (id) => {
-    axios.get(`/api/villes/findbyid/${id}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/villes/findbyid/${id}`).then((response) => {
       const data = response.data;
       setVille(data);
       setEditModalOpen(true);
@@ -86,7 +86,7 @@ const VilleList = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("/api/villes/save", { nom }).then(() => {
+    axios.post("https://restaurantlocalisationback-production.up.railway.app/api/villes/save", { nom }).then(() => {
       navigate("/villeList");
     });
   };
@@ -96,7 +96,7 @@ const VilleList = () => {
   const handleEdit = (id) => {
     const newName = window.prompt("Enter the new name for this ville:");
     if (newName) {
-      axios.put(`/api/villes/update/${id}`, { nom: newName }).then(() => {
+      axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/villes/update/${id}`, { nom: newName }).then(() => {
         setVilles((villes) =>
           villes.map((ville) => {
             if (ville.id === id) {
@@ -119,9 +119,9 @@ const VilleList = () => {
     const handleSaveEdit = () => {
       // Perform the API call to save the edited ville
       const { id, nom } = ville;
-      axios.put(`/api/villes/update/${id}`, { nom:editSerie.nom }).then(() => {
+      axios.put(`https://restaurantlocalisationback-production.up.railway.app/api/villes/update/${id}`, { nom:editSerie.nom }).then(() => {
        
-        axios.get("/api/villes/all").then((response) => {
+        axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
           setVilles(response.data);
           console.log(response.data);
         });
@@ -130,7 +130,7 @@ const VilleList = () => {
     };
 
     useEffect(() => {
-      axios.get(`/api/villes/findbyid/${id}`).then((response) => {
+      axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/villes/findbyid/${id}`).then((response) => {
         const data = response.data;
         setEditSerie(data);
       });
