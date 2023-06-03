@@ -59,7 +59,7 @@ const ZoneList = ({ cityId }) => {
     }, [cityId]);
 
     useEffect(() => {
-        axios.get("/api/villes/all").then((response) => {
+        axios.get("https://restaurantlocalisationback-production.up.railway.app/api/villes/all").then((response) => {
             setCities(response.data);
         });
     }, []);

@@ -109,7 +109,7 @@ const handlePhotoChange = (event) => {
   const handleCityChange = (event) => {
     const cityId = event.target.value;
     setSelectedCityId(cityId);
-    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones//ville/zones/${cityId}`).then((response) => {
+    axios.get(`https://restaurantlocalisationback-production.up.railway.app/api/zones/ville/zones/${cityId}`).then((response) => {
       setZones(response.data);
     });
   };
