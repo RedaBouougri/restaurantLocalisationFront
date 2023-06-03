@@ -35,7 +35,7 @@ const RestoDetails: React.FC<{ resto: any }> = ({ resto }) => {
             <InfoCircleOutlined key="info" onClick={handleInfoClick} />
           </Tooltip>,
           <Tooltip title="Map">
-            <Link to={`https://restaurantlocalisationback-production.up.railway.app/restodetails/${resto.id}`}>
+            <Link to={`/restodetails/${resto.id}`}>
               <EnvironmentOutlined key="Map" />
             </Link>
           </Tooltip>,
