@@ -2,6 +2,7 @@
   "name": "res",
   "version": "0.1.0",
   "private": true,
+  "proxy" :"https://restaurantlocalisationback-production.up.railway.app",
   "dependencies": {
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
